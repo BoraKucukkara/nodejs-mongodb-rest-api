@@ -1,0 +1,36 @@
+// VsCode Extension: REST Client
+// https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+// Get all records
+GET http://localhost:3000/followers
+
+###
+
+// Get record by ID
+GET http://localhost:3000/followers/65a6d5f4834e474dfsdc2345ef68
+
+###
+
+// Create new record
+POST http://localhost:3000/followers
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "followed": true
+}
+
+###
+
+// Delete record by ID
+DELETE http://localhost:3000/followers/k
+
+### 
+
+// Update record by ID
+PATCH http://localhost:3000/followers/65a6d5dd834e474c2345ef66
+Content-Type: application/json
+
+{
+    "followed": true
+}
