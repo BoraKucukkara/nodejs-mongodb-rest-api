@@ -48,7 +48,7 @@ router.patch('/:id', getFollower, async (req, res)=>{
         console.log("request: PATCH by id:" + res.follower.id)
     } catch (error) {
         res.status(400).json({message: error.message})
-    }123
+    }
 })
 
 // Delete record
