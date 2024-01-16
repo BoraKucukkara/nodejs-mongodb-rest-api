@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon server.js"
+    "devStart": "nodemon server.js"
   },
   "author": "Bora Kucukkara <borakucukkara.com@gmail.com> (https://www.borakucukkara.com/)",
   "license": "MIT",
