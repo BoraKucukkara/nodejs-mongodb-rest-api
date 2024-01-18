@@ -4,10 +4,11 @@ const Followers = require('../models/followers');
 
 // Getting all records
 router.get('/', async (req, res)=>{
+    console.log("request: GET all records")
     try {
         const followers = await Followers.find()
         res.json(followers)
-        console.log("request: GET all records")
+        console.log("request: GET all records: SUCCESS")
     } catch (err) {
         res.status(500).json({message: err.message})
     }
@@ -15,6 +16,7 @@ router.get('/', async (req, res)=>{
 
 // Creating record
 router.post('/', async (req, res)=>{
+    console.log("request: POST create new record")
     const follower = new Followers({
         name: req.body.name,
         followed: req.body.followed,
@@ -22,7 +24,7 @@ router.post('/', async (req, res)=>{
     try {
         const newFollower = await follower.save()
         res.status(201).json(newFollower)
-        console.log("request: POST create new record")
+        console.log("request: POST create new record: SUCCESS")
     } catch(err) {
         res.status(400).json({message: err.message})
     }
@@ -31,7 +33,7 @@ router.post('/', async (req, res)=>{
 // Getting one record
 router.get('/:id', getFollower, (req, res)=>{
     res.json(res.follower)
-    console.log("request: GET by id:" + res.follower.id)
+    console.log("request: GET by id:" + res.follower.id  + " SUCCESS")
 })
 
 // Update record
@@ -45,7 +47,7 @@ router.patch('/:id', getFollower, async (req, res)=>{
     try {
         const updatedFollower = await res.follower.save()
         res.json(updatedFollower)
-        console.log("request: PATCH by id:" + res.follower.id)
+        console.log("request: PATCH by id:" + res.follower.id + " SUCCESS") 
     } catch (error) {
         res.status(400).json({message: error.message})
     }
@@ -56,7 +58,7 @@ router.delete('/:id', getFollower, async (req, res)=>{
     try {
         await res.follower.deleteOne()
         res.json({message: res.follower.id + " record deleted"})
-        console.log("request: DELETE id:" + res.follower.id)
+        console.log("request: DELETE id:" + res.follower.id + " SUCCESS")
     } catch (err) {
         res.status(500).json({message: err.message})
     }
@@ -64,6 +66,7 @@ router.delete('/:id', getFollower, async (req, res)=>{
 
 // Middleware
 async function getFollower(req, res, next) {
+    console.log("Incoming request by ID")
     let follower
     try {
         follower = await Followers.findById(req.params.id)
