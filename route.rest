@@ -7,7 +7,7 @@ GET http://localhost:3000/followers
 ###
 
 // Get record by ID
-GET http://localhost:3000/followers/65a6d5f4834e474dfsdc2345ef68
+GET http://localhost:3000/followers/65a6dc60685c6e08842a2db4
 
 ###
 
@@ -16,21 +16,21 @@ POST http://localhost:3000/followers
 Content-Type: application/json
 
 {
-    "name": "John Doe",
+    "name": "Potato",
     "followed": true
 }
 
 ###
 
 // Delete record by ID
-DELETE http://localhost:3000/followers/k
+DELETE http://localhost:3000/followers/65a6d5dd834e474c2345ef66
 
 ### 
 
 // Update record by ID
-PATCH http://localhost:3000/followers/65a6d5dd834e474c2345ef66
+PATCH http://localhost:3000/followers/65a6ea46173637e91fb0af66
 Content-Type: application/json
 
 {
-    "followed": true
+    "name": "Kyo Kusanagi"
 }
